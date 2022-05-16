@@ -1,0 +1,26 @@
+to check virtualization support :
+
+egrep -c '(vmx|svm)' /proc/cpuinfo 
+>0 ok
+
+sudo kvm-ok
+
+sudo apt install cpu-checker -> sudo kvm-ok
+
+
+install kvm
+
+sudo apt install -y qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager
+
+to verify if libvirt is running
+
+sudo systemctl status libvirtd
+
+to check if kvm modules are loaded
+
+lsmod | grep -i kvm
+
+sudo virt-install --name=fedora-vm  --os-variant=Fedora20 --vcpu=2 --ram=1024 --graphics spice --location=/home/.....iso --network bridge:vibr0
+
+
+osinfo-query os
